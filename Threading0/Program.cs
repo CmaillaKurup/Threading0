@@ -1,12 +1,27 @@
 ﻿using System;
+using System.Threading;
 
 namespace Threading0
 {
     class Program
     {
-        static void Main(string[] args)
+        public void WorkThreadFunction()
         {
-            Console.WriteLine("Hello World!");
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine("Simple Thread");
+            }
+        }
+    }
+
+    class TheProg
+    {
+        public static void Main()
+        {
+            Program pg = new Program();
+            Thread thread = new Thread(pg.WorkThreadFunction);
+            thread.Start();
+            Console.Read();
         }
     }
 }
